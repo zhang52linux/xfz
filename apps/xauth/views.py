@@ -1,12 +1,16 @@
 #encoding: utf-8
-
+from io import BytesIO
 
 from django.contrib.auth import login,logout,authenticate
-from django.shortcuts import redirect
-from django.urls import reverse
+from django.shortcuts import redirect,reverse
+from io import BytesIO
+from django.core.cache import cache
 from django.views.decorators.http import require_POST
+from utils import smssender, restful
+from utils.aliyunsdk import aliyunsms
+from utils.captcha.xfzcaptcha import Captcha
 from .froms import LoginForm
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 
 @require_POST
@@ -54,39 +58,39 @@ def logout_view(request):
 #         return restful.params_error(message=form.get_errors())
 #
 #
-# def img_captcha(request):
-#     text,image = Captcha.gene_code()
-#     # BytesIO：相当于一个管道，用来存储图片的流数据
-#     out = BytesIO()
-#     # 调用image的save方法，将这个image对象保存到BytesIO中
-#     image.save(out,'png')
-#     # 将BytesIO的文件指针移动到最开始的位置
-#     out.seek(0)
+def img_captcha(request):
+    text,image = Captcha.gene_code()
+    # BytesIO：相当于一个管道，用来存储图片的流数据
+    out = BytesIO()
+    # 调用image的save方法，将这个image对象保存到BytesIO中
+    image.save(out,'png')
+    # 将BytesIO的文件指针移动到最开始的位置
+    out.seek(0)
+
+    response = HttpResponse(content_type='image/png')
+    # 从BytesIO的管道中，读取出图片数据，保存到response对象上
+    response.write(out.read())
+    response['Content-length'] = out.tell()
+
+    # 12Df：12Df.lower()
+    cache.set(text.lower(),text.lower(),5*60)
+
+    return response
 #
-#     response = HttpResponse(content_type='image/png')
-#     # 从BytesIO的管道中，读取出图片数据，保存到response对象上
-#     response.write(out.read())
-#     response['Content-length'] = out.tell()
-#
-#     # 12Df：12Df.lower()
-#     cache.set(text.lower(),text.lower(),5*60)
-#
-#     return response
-#
-#
-# def sms_captcha(request):
-#     # /sms_captcha/?telephone=xxx
-#     telephone = request.GET.get('telephone')
-#     code = Captcha.gene_text()
-#     cache.set(telephone,code,5*60)
-#     print('短信验证码：',code)
-#     # result = aliyunsms.send_sms(telephone,code)
-#     result = smssender.send(telephone,code)
-#     if result:
-#         return restful.ok()
-#     else:
-#         return result.params_error(message="短信验证码发送失败！")
-#
+
+def sms_captcha(request):
+    # /sms_captcha/?telephone=xxx
+    telephone = request.GET.get('telephone')
+    code = Captcha.gene_text()
+    cache.set(telephone,code,5*60)
+    print('短信验证码：',code)
+    # result = aliyunsms.send_sms(telephone,code)
+    result = smssender.send(telephone,code)
+    if result:
+        return restful.ok()
+    else:
+        return result.params_error(message="短信验证码发送失败！")
+
 #
 # def cache_test(request):
 #     cache.set('username','zhiliao',60)

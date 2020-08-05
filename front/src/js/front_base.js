@@ -26,6 +26,8 @@ Auth.prototype.run = function () {
     var self = this;
     self.listenShowHideEvent();
     self.listenSigninEvent();
+    self.listenImgCaptchaEvent();
+    self.listenSmsCaptchaEvent();
 }
 
 Auth.prototype.showEvent = function () {
@@ -106,6 +108,57 @@ Auth.prototype.listenSigninEvent = function() {
     });
 }
 
+Auth.prototype.listenImgCaptchaEvent = function () {
+    var imgCaptcha = $('.img-captcha');
+    imgCaptcha.click(function () {
+        imgCaptcha.attr("src","/account/img_captcha/"+"?random="+Math.random())
+    });
+};
+
+Auth.prototype.smsSuccessEvent = function () {
+    var self = this;
+    messageBox.showSuccess('短信验证码发送成功！');
+    self.smsCaptcha.addClass('disabled');
+    var count = 10;
+    self.smsCaptcha.unbind('click');
+    var timer = setInterval(function () {
+        self.smsCaptcha.text(count+'s');
+        count -= 1;
+        if(count <= 0){
+            clearInterval(timer);
+            self.smsCaptcha.removeClass('disabled');
+            self.smsCaptcha.text('发送验证码');
+            self.listenSmsCaptchaEvent();
+        }
+    },1000);
+};
+
+Auth.prototype.listenSmsCaptchaEvent = function () {
+    var self = this;
+    var smsCaptcha = $(".sms-captcha-btn");
+    var telephoneInput = $(".signup-group input[name='telephone']");
+    smsCaptcha.click(function () {
+        var telephone = telephoneInput.val();
+        if(!telephone){
+            messageBox.showInfo('请输入手机号码！');
+        }
+        $.ajax({
+            type: "get", // 请求类型（get/post）
+            url: '/account/sms_captcha/',
+            data:{'telephone': telephone},
+            async: true, // 是否异步
+            dataType: "json", // 设置数据类型
+            success: function (result) {
+                if(result['code'] == 200){
+                    self.smsSuccessEvent();
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+};
 
 
 // 用来处理导航条的

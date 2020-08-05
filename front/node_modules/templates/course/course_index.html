@@ -1,0 +1,99 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+    课程页
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/course/courseIndex.min.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="course-nav">
+            <div class="nav-container">
+              <h2 class="title">在线课堂</h2>
+                <ul class="nav-list">
+                    <li class="active"><a href="#">最新课堂</a></li>
+                    <li><a href="#">投资人说</a></li>
+                    <li><a href="#">明星案例</a></li>
+                    <li><a href="#">创业知识</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <ul class="course-list">
+                <a href="#">
+                    <li>
+                    <div class="thumbnail">
+                        <img src="https://static-image.xfz.cn/1563171906_23.png-course.list.small" alt="">
+                    </div>
+                    <div class="course-info">
+                        <p class="title">面对危机公关，多快算快</p>
+                        <p class="author">高超 / 资深品牌公关</p>
+                        <p class="price-group">
+                            <span class="free">免费</span>
+                        </p>
+                    </div>
+                </li>
+                </a>
+                <a href="#">
+                    <li>
+                    <div class="thumbnail">
+                        <img src="https://static-image.xfz.cn/1513075126_301.png-course.list.small" alt="">
+                    </div>
+                    <div class="course-info">
+                        <p class="title">面对危机公关，多快算快</p>
+                        <p class="author">高超 / 资深品牌公关</p>
+                        <p class="price-group">
+                            <span class="free">免费</span>
+                        </p>
+                    </div>
+                </li>
+                </a>
+                <a href="#">
+                    <li>
+                    <div class="thumbnail">
+                        <img src="https://static-image.xfz.cn/1513074060_532.png-course.list.small" alt="">
+                    </div>
+                    <div class="course-info">
+                        <p class="title">面对危机公关，多快算快</p>
+                        <p class="author">高超 / 资深品牌公关</p>
+                        <p class="price-group">
+                            <span class="free">免费</span>
+                        </p>
+                    </div>
+                </li>
+                </a>
+                <a href="#">
+                    <li>
+                    <div class="thumbnail">
+                        <img src="https://static-image.xfz.cn/1513074473_908.png-course.list.small" alt="">
+                    </div>
+                    <div class="course-info">
+                        <p class="title">面对危机公关，多快算快</p>
+                        <p class="author">高超 / 资深品牌公关</p>
+                        <p class="price-group">
+                            <span class="free">免费</span>
+                        </p>
+                    </div>
+                </li>
+                </a>
+                <a href="#">
+                    <li>
+                    <div class="thumbnail">
+                        <img src="https://static-image.xfz.cn/1513074088_956.png-course.list.small" alt="">
+                    </div>
+                    <div class="course-info">
+                        <p class="title">即时消费将是新零售最大风口  大数据时代如何精准重构“人-场-货”</p>
+                        <p class="author">司江华 / 猩便利联合创始人兼总裁</p>
+                        <p class="price-group">
+                            <span class="pay">¥ 29.0</span>
+                        </p>
+                    </div>
+                </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

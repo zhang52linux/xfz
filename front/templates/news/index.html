@@ -1,0 +1,200 @@
+{% extends 'base/front_base.html' %}
+
+
+{% block title %} 首页 {% endblock %}
+
+
+{% block head %}
+    <script src="{% static 'js/index.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/news/index.min.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="new-wrapper">
+                <div class="banner-group" id="bannerGroup">
+                    <ul id="banner-ul">
+                        <li>
+                            <a href="#">
+                                <img src="{% static 'images/01.jpg' %}" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{% static 'images/02.jpg' %}" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{% static 'images/03.jpg' %}" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                    <span class="arrow left-arrow">‹</span>
+                    <span class="arrow right-arrow">›</span>
+                    <div class="page-control-group">
+                        <ul class="page-control">
+                        </ul>
+                    </div>
+                </div>
+                <div class="list-outer-group">
+                    <ul class="list-tab">
+                        <li class="active"><a href="#">最新咨询</a></li>
+                        <li><a href="#">热点</a></li>
+                        <li><a href="#">深度报道</a></li>
+                        <li><a href="#">干货分享</a></li>
+                        <li><a href="#">投资人说</a></li>
+                    </ul>
+                    <ul class="list-inner-group">
+                        <li>
+                           <div class="thumbnail-group">
+                               <a href="#">
+                                   <img src="https://static-image.xfz.cn/1595480077_509.jpeg-website.news.list" alt="">
+                               </a>
+                           </div>
+                            <div class="news-group">
+                                <p class="title">
+                                    <a href="#">
+                                        从首轮投资奇安信到科创板上市，沸点资本工匠投资再获硕果
+                                    </a>
+                                </p>
+                                <p class="desc">
+                                    A轮投资奇安信3年后收获IPO，沸点资本“高成功率”投资秘诀
+                                </p>
+                                <p class="more">
+                                    <span class="category">上市融资</span>
+                                    <span class="pub-time">7分钟前</span>
+                                    <span class="author">饭桌君</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="thumbnail-group">
+                               <a href="#">
+                                   <img src="https://static-image.xfz.cn/1595406125_473.jpg-website.news.list" alt="">
+                               </a>
+                           </div>
+                            <div class="news-group">
+                                <p class="title">
+                                    <a href="#">
+                                        个护小家电领域，不管是做大单品还是小爆品，一定要塑造核心的品牌印象
+                                    </a>
+                                </p>
+                                <p class="desc">
+                                    个护品类智能化迎来新机遇，每天每个人在每个场景下使用的产品都值得以智能化为基础再做一遍。
+                                </p>
+                                <p class="more">
+                                    <span class="category">上市融资</span>
+                                    <span class="pub-time">7分钟前</span>
+                                    <span class="author">饭桌君</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="thumbnail-group">
+                               <a href="#">
+                                   <img src="https://static-image.xfz.cn/1595501895_897.png-website.news.list" alt="">
+                               </a>
+                           </div>
+                            <div class="news-group">
+                                <p class="title">
+                                    <a href="#">
+                                        水滴公司最新回应：并没有明确的IPO计划，但会保持探索资本市场各种可能性
+                                    </a>
+                                </p>
+                                <p class="desc">
+                                    2019年水滴公司C轮融资超过10亿元人民币，累积融资金额超过18亿元人民币。
+                                </p>
+                                <p class="more">
+                                    <span class="category">水滴筹</span>
+                                    <span class="pub-time">7分钟前</span>
+                                    <span class="author">饭桌君</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="load-more-group">
+                        <button class="load-more">
+                            查看更多
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% include 'common/sidebar.html' %}
+        </div>
+    </div>
+    <div class="mask-wrapper">
+         <div class="auth-wrapper">
+             <div class="close-group">
+                 <span class="close-btn icon-close iconfont"></span>
+             </div>
+             <div class="auth-inner-wrapper">
+                 <div class="scroll-wrapper">
+                     <div class="signin-group auth-group">
+                         <div class="top-group">
+                             <span class="title">请登录</span>
+                             <a href="javascript:void(0);" class="switch_signup">立即注册></a>
+                         </div>
+                         <div class="form-group">
+                             <div class="input-group">
+                                 <input type="text" class="form-control" name="telephone" placeholder="请输入手机号码">
+                             </div>
+                             <div class="input-group">
+                                 <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                             </div>
+                             <div class="input-group">
+                                 <label class="remember-label">
+                                     <input type="checkbox"  name="remember" value="1">
+                                     记住我
+                                 </label>
+                             </div>
+                             <div class="input-group">
+                                 <input type="button" class="submit-btn" value="立即登录">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="signup-group auth-group">
+                        <div class="top-group">
+                             <span class="title">请注册</span>
+                             <a href="javascript:void(0);" class="switch_signin">立即登录></a>
+                         </div>
+                         <div class="form-group">
+                             <div class="input-group">
+                                 <input type="text" class="form-control" name="telephne" placeholder="手机号码">
+                             </div>
+                             <div class="input-group">
+                                 <input type="text" class="form-control" name="username" placeholder="用户名">
+                             </div>
+                             <div class="input-group">
+                                 <div class="short-input-group">
+                                     <input type="text"  name="img_captcha" class="form-control" placeholder="图形验证码">
+                                 </div>
+                                 <div class="input-group-addon">
+                                     <img src="" alt="">
+                                 </div>
+                             </div>
+                             <div class="input-group">
+                                 <input type="password" class="form-control" name="password1" placeholder="密码">
+                             </div>
+                             <div class="input-group">
+                                 <input type="password" class="form-control" name="password2" placeholder="确认密码">
+                             </div>
+                             <div class="input-group">
+                                 <div class="short-input-group">
+                                     <input type="text"  name="sms_captcha" class="form-control" placeholder="图形验证码">
+                                 </div>
+                                 <div class="input-group-addon">
+                                     <span class="sms-captcha-btn">发送验证码</span>
+                                 </div>
+                             </div>
+                             <div class="input-group">
+                                 <input type="button" class="submit-btn" value="立即注册">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+{% endblock %}

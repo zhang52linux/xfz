@@ -1,0 +1,139 @@
+* {
+  text-decoration: none;
+}
+body {
+  background: grey;
+}
+
+.mask-wrapper {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  overflow-y: scroll;
+  display: none;
+  z-index: 100;
+  .auth-wrapper {
+    width: 400px;
+    height: 500px;
+    //background-color: #fff;
+    margin: 60px auto;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    .close-group {
+      width: 100%;
+      height: 40px;
+      background-color: salmon;
+      .close-btn {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+        float: right;
+        cursor: pointer;
+      }
+    }
+    .auth-inner-wrapper {
+      width: 100%;
+      height: 500px;
+      //background-color: #ccc;
+      position: relative;
+      overflow: hidden;
+      .scroll-wrapper {
+        width: 800px;
+        //height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        //background: #fff;
+        .auth-group {
+          width: 400px;
+          height: 100%;
+          padding: 20px;
+          box-sizing: border-box;
+          margin-bottom: 20px;
+          .top-group {
+          width: 100%;
+          height: 36px;
+          line-height: 36px;
+          border-bottom: 1px solid #eee;
+          .title {
+            float: left;
+            color: #3a3a3a;
+            border-bottom: 3px solid #5c87d9;
+          }
+          .switch_signup {
+            float: right;
+            color: #5c87d9;
+          }
+          .switch_signin {
+            float: right;
+            color: #5c87d9;
+          }
+         }
+          .form-group {
+            margin-top: 20px;
+            .input-group {
+              margin-bottom: 20px;
+              .form-control {
+                border: 1px solid #ccc;
+                padding: 10px;
+                width: 100%;
+                box-sizing: border-box;
+                outline: none;
+              }
+              .remember-label {
+                  font-size: 14px;
+                  color: #555e67;
+              }
+              .submit-btn {
+                width: 100%;
+                height: 40px;
+                background-color: #578cd9;
+                color: white;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                border: 1px solid red;
+                padding-bottom: 20px;
+              }
+              .short-input-group {
+                float: left;
+                width: 250px;
+                margin-bottom: 20px;
+              }
+              .input-group-addon {
+                float: right;
+                width: 100px;
+                height: 36px;
+                line-height: 36px;
+                .sms-captcha-btn {
+                  display: inline-block;
+                  width: 100%;
+                  height: 36px;
+                  line-height: 36px;
+                  text-align: center;
+                  border: 1px solid cadetblue;
+                  box-sizing: border-box;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .signup-group {
+          float: left;
+          background: #fff;
+        }
+        .signin-group {
+          float: left;
+          background: #fff;
+        }
+      }
+    }
+  }
+}
